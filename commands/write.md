@@ -4,6 +4,8 @@ description: Write MyVault content (blog, newsletter, social, website copy, help
 argument-hint: "[content type] about [topic] for [audience]"
 ---
 
+**Note: The current year is 2026.** Reference this when writing about current trends or events.
+
 # MyVault Content Writer
 
 Create content for MyVault:

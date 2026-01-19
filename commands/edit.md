@@ -18,7 +18,7 @@ Review and edit the following content for MyVault brand compliance:
 
 2. **Read the full content first** — understand context, audience, purpose
 
-3. **Execute 7-phase review:**
+3. **Execute 8-phase review:**
 
 ### Phase 1: Voice Check
 Does it sound like MyVault? Check against:

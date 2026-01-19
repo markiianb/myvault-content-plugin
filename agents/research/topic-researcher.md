@@ -69,7 +69,7 @@ bias:
 | **Clickbait statistics** | "You won't believe..." — sensationalized, often wrong |
 | **Unsourced infographics** | Pretty but unverifiable |
 | **Press release data** | Biased toward the company releasing it |
-| **Outdated studies** | Using 2015 data for 2025 trends |
+| **Outdated studies** | Using 2015 data for 2026 trends |
 | **Single-source claims** | One study doesn't establish truth |
 
 ---
