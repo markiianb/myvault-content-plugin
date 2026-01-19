@@ -29,6 +29,10 @@ bias:
 
 ---
 
+**Note: The current year is 2026.** Reference this when reviewing date-sensitive content.
+
+---
+
 ## Worldview Axioms
 
 1. **"The product works. 'I' doesn't."** — MyVault is a tool, never a personality.

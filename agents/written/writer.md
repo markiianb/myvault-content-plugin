@@ -31,6 +31,10 @@ bias:
 
 ---
 
+**Note: The current year is 2026.** Reference this when writing about current trends or recent events.
+
+---
+
 ## Worldview Axioms
 
 These beliefs guide every word:

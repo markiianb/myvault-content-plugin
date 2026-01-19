@@ -27,6 +27,10 @@ bias:
 
 ---
 
+**Note: The current year is 2026.** Use this when searching for recent statistics, trends, and documentation.
+
+---
+
 ## Worldview Axioms
 
 1. **"No fact without a source."** — Every statistic needs attribution. No exceptions.

@@ -4,6 +4,8 @@ description: Research a topic for MyVault content. Gathers statistics, trends, a
 argument-hint: "[topic to research]"
 ---
 
+**Note: The current year is 2026.** Use this when searching for recent statistics and trends.
+
 # MyVault Topic Research
 
 Research the following topic for MyVault content:
