@@ -383,6 +383,45 @@ Built the MyVault content plugin following compound-engineering architecture pat
 
 **Learning:** The compound-engineering patterns (axioms, canon/anti-canon, signature moves) translate well to content production. The key adaptation is enforcing product voice (tool, not personality) throughout.
 
+### 2026-01-19: Plugin Installation & Distribution Learnings
+
+Solved critical issues with GitHub-based plugin distribution for private repos:
+
+**Critical Discovery: Plugin Commands are Slash Commands**
+- Plugin commands (`/plugin marketplace add`, `/plugin install`) are **slash commands** that run INSIDE Claude Code
+- They are NOT bash CLI commands like `claude plugin install`
+- Install scripts should display the commands for users to copy/paste, not try to execute them
+
+**Known Marketplaces Configuration Format**
+- Claude Code only supports TWO source types:
+  - `"source": "github"` with `"repo": "owner/name"`
+  - `"source": "git"` with `"url": "https://..."`
+- **NEVER use `"source": "local"`** - it causes "Marketplace configuration file is corrupted" errors that prevent Claude Code from starting
+- If `known_marketplaces.json` gets corrupted, Claude Code will hang on startup with no UI
+
+**Private Repository Distribution**
+- Private GitHub repos work perfectly as marketplaces
+- Claude Code uses the user's existing GitHub credentials (SSH keys or gh auth)
+- Team members need: (1) GitHub collaborator access, (2) GitHub auth configured
+- Test access before installation: `ssh -T git@github.com`
+
+**Update Workflow**
+- Maintainer pushes changes to GitHub
+- Team members run: `/plugin marketplace update myvault-marketplace` inside Claude Code
+- Restart Claude Code to load changes
+- No manual file copying needed
+
+**Debugging Corrupted Plugin State**
+- Check: `cat ~/.claude/debug/latest` for error messages
+- Clean: Remove bad entries from `~/.claude/plugins/known_marketplaces.json`
+- Clean: Remove bad entries from `~/.claude/plugins/installed_plugins.json`
+- Backup: Rename corrupted marketplace dir: `mv marketplace marketplace.bak`
+
+**Repository Structure**
+- Root must contain: `.claude-plugin/marketplace.json`
+- Marketplace.json must define plugins array with `source: "./"` for root-level plugin
+- Plugin directory must contain: agents/, commands/, skills/, .claude-plugin/plugin.json
+
 ---
 
 *Private by design. Intelligent by nature.*
