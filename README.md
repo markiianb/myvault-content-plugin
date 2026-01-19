@@ -4,6 +4,36 @@ A Claude Code plugin for producing on-brand MyVault content. Provides skills (kn
 
 ---
 
+## Installation (Team Members)
+
+**Prerequisites:** You must be a collaborator on the private GitHub repo.
+
+```bash
+# 1. Clone the repo
+git clone git@github.com:markiianb/myvault-content-plugin.git ~/myvault-plugin
+
+# 2. Run the install script
+cd ~/myvault-plugin
+./install-plugin.sh
+
+# 3. Restart Claude Code
+```
+
+---
+
+## Updating the Plugin
+
+When updates are pushed to the repo:
+
+```bash
+cd ~/myvault-plugin
+./update-plugin.sh
+
+# Restart Claude Code
+```
+
+---
+
 ## Quick Start
 
 ```bash

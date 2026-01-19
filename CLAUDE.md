@@ -7,7 +7,8 @@ A Claude Code plugin for producing on-brand MyVault content. This file explains 
 ```
 myvault-content-plugin/
 ├── .claude-plugin/
-│   └── plugin.json           # Plugin metadata
+│   ├── plugin.json           # Plugin metadata
+│   └── marketplace.json      # Marketplace metadata
 ├── agents/                   # 4 specialized agents
 │   ├── research/
 │   │   ├── topic-researcher.md
@@ -25,9 +26,81 @@ myvault-content-plugin/
 │   ├── style-guide/SKILL.md
 │   ├── audience-personas/SKILL.md
 │   └── product-knowledge/SKILL.md
+├── install-plugin.sh         # First-time installation script
+├── update-plugin.sh          # Update script for team members
 ├── README.md                 # User documentation
 └── CLAUDE.md                 # This file
 ```
+
+## Team Workflow
+
+This plugin is distributed via a **private GitHub repo**. Team members must be collaborators.
+
+### First-Time Installation
+
+```bash
+# Clone the repo (requires GitHub access)
+git clone git@github.com:markiianb/myvault-content-plugin.git ~/myvault-plugin
+
+# Run install script
+cd ~/myvault-plugin
+./install-plugin.sh
+
+# Restart Claude Code
+```
+
+### Updating the Plugin
+
+When the maintainer pushes updates:
+
+```bash
+cd ~/myvault-plugin
+./update-plugin.sh
+
+# Restart Claude Code
+```
+
+### For Maintainers: Pushing Updates
+
+```bash
+# Make changes to plugin files
+cd /path/to/myvault-content-plugin
+
+# Commit and push
+git add .
+git commit -m "Update: [description]"
+git push
+
+# Notify team to run ./update-plugin.sh
+```
+
+### How Installation Works
+
+The scripts manage these Claude Code files:
+
+| Location | Purpose |
+|----------|---------|
+| `~/.claude/plugins/marketplaces/myvault-marketplace/` | Marketplace registration |
+| `~/.claude/plugins/cache/myvault-marketplace/myvault-content/1.0.0/` | Installed plugin files |
+| `~/.claude/plugins/known_marketplaces.json` | Marketplace registry |
+| `~/.claude/plugins/installed_plugins.json` | Plugin registry |
+
+### Troubleshooting
+
+**Plugin not loading after install:**
+- Restart Claude Code completely (close terminal, reopen)
+- Check that files exist in cache directory
+
+**Permission denied on scripts:**
+```bash
+chmod +x install-plugin.sh update-plugin.sh
+```
+
+**Git clone fails:**
+- Ensure you're added as a collaborator on the repo
+- Ensure SSH keys are configured: `ssh -T git@github.com`
+
+---
 
 ## Philosophy: Content as Product
 
