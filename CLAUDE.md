@@ -8,14 +8,16 @@ A Claude Code plugin for producing on-brand MyVault content. This file explains 
 myvault-content-plugin/
 ├── .claude-plugin/
 │   └── plugin.json           # Plugin metadata
-├── agents/                   # 3 specialized agents
+├── agents/                   # 4 specialized agents
 │   ├── research/
-│   │   └── topic-researcher.md
+│   │   ├── topic-researcher.md
+│   │   └── content-researcher.md
 │   └── written/
 │       ├── writer.md
 │       └── style-editor.md
-├── commands/                 # 3 slash commands
+├── commands/                 # 4 slash commands
 │   ├── research.md           # /myvault:research
+│   ├── content-research.md   # /myvault:content-research
 │   ├── write.md              # /myvault:write
 │   └── edit.md               # /myvault:edit
 ├── skills/                   # 4 knowledge skills
@@ -65,8 +67,11 @@ Produces Content
 ### Using Commands
 
 ```bash
-# Research a topic
+# Research facts about a topic
 /myvault:research subscription fatigue
+
+# Research content landscape
+/myvault:content-research subscription management
 
 # Write content
 /myvault:write blog post about digital chaos for families
@@ -147,18 +152,24 @@ Load the product-knowledge skill
 
 ### Standard Flow
 
-1. **Research** (optional): `/myvault:research [topic]`
+1. **Content Research** (optional): `/myvault:content-research [topic area]`
+   - Maps existing content landscape
+   - Identifies gaps and opportunities
+   - Analyzes competitor positioning
+   - Recommends angles for MyVault
+
+2. **Topic Research** (optional): `/myvault:research [topic]`
    - Gathers statistics, trends, sources
    - Evaluates source quality (Tier A/B/C/D)
    - Connects findings to MyVault narrative
 
-2. **Write**: `/myvault:write [type] about [topic] for [audience]`
+3. **Write**: `/myvault:write [type] about [topic] for [audience]`
    - Loads all knowledge skills
    - Follows 4-phase protocol (Think → Structure → Draft → Review)
    - Applies 9 signature moves
 
-3. **Edit**: `/myvault:edit [content]`
-   - 7-phase review process
+4. **Edit**: `/myvault:edit [content]`
+   - 8-phase review process
    - Checks voice, product voice, AI transparency, mechanics
    - Outputs structured edit results
 

@@ -19,6 +19,7 @@ A Claude Code plugin for producing on-brand MyVault content. Provides skills (kn
 | Command | Purpose | Example |
 |---------|---------|---------|
 | `/myvault:research` | Research a topic with cited sources | `/myvault:research photo organization statistics` |
+| `/myvault:content-research` | Research content landscape and gaps | `/myvault:content-research subscription management` |
 | `/myvault:write` | Create content following brand voice | `/myvault:write newsletter about privacy for professionals` |
 | `/myvault:edit` | Review and edit for style compliance | `/myvault:edit [content]` |
 
@@ -28,17 +29,19 @@ A Claude Code plugin for producing on-brand MyVault content. Provides skills (kn
 
 ```
 myvault-content-plugin/
-├── commands/           # Workflow shortcuts
-│   ├── research.md     # /myvault:research
-│   ├── write.md        # /myvault:write
-│   └── edit.md         # /myvault:edit
-├── agents/             # Task executors
+├── commands/                # Workflow shortcuts
+│   ├── research.md          # /myvault:research
+│   ├── content-research.md  # /myvault:content-research
+│   ├── write.md             # /myvault:write
+│   └── edit.md              # /myvault:edit
+├── agents/                  # Task executors
 │   ├── research/
-│   │   └── topic-researcher.md
+│   │   ├── topic-researcher.md
+│   │   └── content-researcher.md
 │   └── written/
 │       ├── writer.md
 │       └── style-editor.md
-└── skills/             # Knowledge repositories
+└── skills/                  # Knowledge repositories
     ├── brand-voice/SKILL.md
     ├── style-guide/SKILL.md
     ├── audience-personas/SKILL.md
@@ -67,8 +70,9 @@ Agents execute tasks using the knowledge from skills.
 | Agent | Purpose |
 |-------|---------|
 | **topic-researcher** | Gathers statistics, trends, data with source quality evaluation |
+| **content-researcher** | Maps content landscape, finds gaps, analyzes competitor positioning |
 | **writer** | Creates content with 9 signature moves and 4-phase protocol |
-| **style-editor** | Reviews content with 7-phase protocol for brand compliance |
+| **style-editor** | Reviews content with 8-phase protocol for brand compliance |
 
 ---
 
