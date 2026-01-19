@@ -43,40 +43,31 @@ This plugin is distributed via a **private GitHub repo** (`markiianb/myvault-con
 - GitHub authentication configured:
   - SSH: `ssh-keygen` + add key to GitHub
   - HTTPS: `gh auth login` (GitHub CLI)
-  - Test: `git ls-remote https://github.com/markiianb/myvault-content-plugin.git`
+  - Test: `ssh -T git@github.com`
 
-**Installation:**
+**Installation (run INSIDE Claude Code):**
 
-```bash
-# 1. Clone the private repo
-git clone https://github.com/markiianb/myvault-content-plugin.git ~/myvault-plugin
-
-# 2. Run installer
-cd ~/myvault-plugin
-./install-plugin.sh
-
-# 3. Restart Claude Code
+```
+/plugin marketplace add https://github.com/markiianb/myvault-content-plugin
+/plugin install myvault-content@myvault-marketplace
 ```
 
+Then restart Claude Code.
+
+**Helper:** You can clone the repo and run `./install-plugin.sh` to see these commands formatted for easy copy/paste.
+
 **What it does:**
-- Tests your GitHub access to the private repo
-- Registers the GitHub repo as a marketplace with Claude Code
-- Claude clones to `~/.claude/plugins/marketplaces/myvault-marketplace/`
-- Installs and enables the plugin automatically
+- Claude Code registers the GitHub repo as a marketplace
+- Clones to `~/.claude/plugins/marketplaces/myvault-marketplace/`
+- Uses your existing GitHub credentials for private repo access
 - Future updates pull from GitHub automatically
 
 ### Updating the Plugin
 
-When the maintainer pushes updates, team members run:
+When the maintainer pushes updates, team members run (INSIDE Claude Code):
 
-```bash
-claude marketplace update myvault-marketplace
 ```
-
-Or use the provided script:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/markiianb/myvault-content-plugin/main/update-plugin.sh | bash
+/plugin marketplace update myvault-marketplace
 ```
 
 Then restart Claude Code.
@@ -120,18 +111,18 @@ Claude Code manages these locations:
 
 **Plugin not loading after install:**
 - Restart Claude Code completely (close terminal, reopen)
-- Run: `claude plugin list` to verify installation
-- Run: `claude plugin enable myvault-content@myvault-marketplace`
+- Inside Claude Code: `/plugin list` to verify installation
+- Inside Claude Code: `/plugin enable myvault-content@myvault-marketplace`
 
 **Installation fails:**
-- Ensure you're added as a collaborator: https://github.com/markiianb/myvault-content-plugin
-- Ensure GitHub access is configured (SSH keys or HTTPS token)
-- Test access: `git ls-remote https://github.com/markiianb/myvault-content-plugin.git`
+- Ensure you're added as a collaborator: https://github.com/markiianb/myvault-content-plugin/settings/access
+- Ensure GitHub access is configured: `ssh -T git@github.com`
+- Test private repo access: `git ls-remote https://github.com/markiianb/myvault-content-plugin.git`
 
 **Updates not appearing:**
-- Run: `claude marketplace update myvault-marketplace`
+- Inside Claude Code: `/plugin marketplace update myvault-marketplace`
 - Restart Claude Code
-- Check: `cd ~/.claude/plugins/marketplaces/myvault-marketplace && git log -1`
+- Check version: `cd ~/.claude/plugins/marketplaces/myvault-marketplace && git log -1`
 
 ---
 

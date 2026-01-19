@@ -8,49 +8,36 @@ A Claude Code plugin for producing on-brand MyVault content. Provides skills (kn
 
 **Prerequisites:**
 - You must be a collaborator on the private GitHub repo
-- GitHub credentials configured (SSH keys or `gh auth login`)
+- GitHub credentials configured (test: `ssh -T git@github.com`)
 
-### Installation Methods
+### Installation Steps
 
-**Option 1: Clone and Install (Recommended)**
+**Inside Claude Code**, run these commands:
 
-```bash
-# Clone the repo
-git clone https://github.com/markiianb/myvault-content-plugin.git ~/myvault-plugin
-
-# Run install script
-cd ~/myvault-plugin
-./install-plugin.sh
-
-# Restart Claude Code
+```
+/plugin marketplace add https://github.com/markiianb/myvault-content-plugin
+/plugin install myvault-content@myvault-marketplace
 ```
 
-**Option 2: Direct Command (if you have GitHub CLI)**
+Then restart Claude Code.
 
-```bash
-# This uses your existing GitHub authentication
-claude marketplace add github markiianb/myvault-content-plugin
-claude plugin install myvault-content@myvault-marketplace
-claude plugin enable myvault-content@myvault-marketplace
+**Helper script:** Clone this repo and run `./install-plugin.sh` to see the commands to copy/paste.
 
-# Restart Claude Code
-```
-
-**What it does:** Registers the private GitHub repo as a marketplace with Claude Code. Claude will use your GitHub credentials to clone and update the plugin.
+**What it does:** Registers the private GitHub repo as a marketplace with Claude Code. Claude uses your GitHub credentials to clone and update the plugin automatically.
 
 ---
 
 ## Updating the Plugin
 
-When updates are pushed:
+When updates are pushed, **inside Claude Code**, run:
 
-```bash
-claude marketplace update myvault-marketplace
+```
+/plugin marketplace update myvault-marketplace
 ```
 
 Then restart Claude Code.
 
-**Auto-updates:** Claude Code will automatically check for updates when you restart (if auto-update is enabled).
+**Auto-updates:** Claude Code may automatically check for updates when you restart (if auto-update is enabled).
 
 ---
 
