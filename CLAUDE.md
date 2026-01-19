@@ -38,30 +38,32 @@ This plugin is distributed via a **private GitHub repo** (`markiianb/myvault-con
 
 ### First-Time Installation
 
-Team members run this one command:
+**Prerequisites:**
+- GitHub account added as collaborator
+- GitHub authentication configured:
+  - SSH: `ssh-keygen` + add key to GitHub
+  - HTTPS: `gh auth login` (GitHub CLI)
+  - Test: `git ls-remote https://github.com/markiianb/myvault-content-plugin.git`
+
+**Installation:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/markiianb/myvault-content-plugin/main/install-plugin.sh | bash
-```
+# 1. Clone the private repo
+git clone https://github.com/markiianb/myvault-content-plugin.git ~/myvault-plugin
 
-Or manually:
-
-```bash
-# Download install script
-curl -O https://raw.githubusercontent.com/markiianb/myvault-content-plugin/main/install-plugin.sh
-chmod +x install-plugin.sh
-
-# Run installer
+# 2. Run installer
+cd ~/myvault-plugin
 ./install-plugin.sh
 
-# Restart Claude Code
+# 3. Restart Claude Code
 ```
 
 **What it does:**
-- Registers the GitHub marketplace with Claude Code
-- Clones the repo to `~/.claude/plugins/marketplaces/myvault-marketplace/`
-- Installs the plugin automatically
-- Enables auto-updates via `claude marketplace update`
+- Tests your GitHub access to the private repo
+- Registers the GitHub repo as a marketplace with Claude Code
+- Claude clones to `~/.claude/plugins/marketplaces/myvault-marketplace/`
+- Installs and enables the plugin automatically
+- Future updates pull from GitHub automatically
 
 ### Updating the Plugin
 

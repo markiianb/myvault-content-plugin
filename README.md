@@ -6,28 +6,37 @@ A Claude Code plugin for producing on-brand MyVault content. Provides skills (kn
 
 ## Installation (Team Members)
 
-**Prerequisites:** You must be a collaborator on the private GitHub repo.
+**Prerequisites:**
+- You must be a collaborator on the private GitHub repo
+- GitHub credentials configured (SSH keys or `gh auth login`)
 
-### Quick Install (One Command)
+### Installation Methods
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/markiianb/myvault-content-plugin/main/install-plugin.sh | bash
-```
-
-Then restart Claude Code.
-
-### Manual Install
+**Option 1: Clone and Install (Recommended)**
 
 ```bash
-# Download and run install script
-curl -O https://raw.githubusercontent.com/markiianb/myvault-content-plugin/main/install-plugin.sh
-chmod +x install-plugin.sh
+# Clone the repo
+git clone https://github.com/markiianb/myvault-content-plugin.git ~/myvault-plugin
+
+# Run install script
+cd ~/myvault-plugin
 ./install-plugin.sh
 
 # Restart Claude Code
 ```
 
-**What it does:** Registers the GitHub marketplace with Claude Code and installs the plugin automatically.
+**Option 2: Direct Command (if you have GitHub CLI)**
+
+```bash
+# This uses your existing GitHub authentication
+claude marketplace add github markiianb/myvault-content-plugin
+claude plugin install myvault-content@myvault-marketplace
+claude plugin enable myvault-content@myvault-marketplace
+
+# Restart Claude Code
+```
+
+**What it does:** Registers the private GitHub repo as a marketplace with Claude Code. Claude will use your GitHub credentials to clone and update the plugin.
 
 ---
 
