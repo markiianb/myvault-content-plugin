@@ -92,28 +92,6 @@ MyVault is a **tool**, not a personality. Never "I" — always "MyVault" or "You
 
 ---
 
-## Three AI Agents (Product)
-
-| Agent | What It Does | Voice Pattern |
-|-------|--------------|---------------|
-| **Insurance Agent** | Manages policies, tracks renewals, finds savings | "Your Insurance Agent found potential savings of $180/year" |
-| **Finance Agent** | Tracks subscriptions, spots duplicates | "Your Finance Agent noticed a duplicate charge" |
-| **Asset Agent** | Catalogs possessions, tracks warranties | "Your Asset Agent found the warranty document" |
-
----
-
-## Audiences
-
-| Audience | Primary Need | Lead With |
-|----------|--------------|-----------|
-| **Tech-Forward Families** (Primary) | Family protection | Chaos → Calm |
-| **Security-Conscious Professionals** | Privacy control | Privacy architecture |
-| **High Net Worth Individuals** | Estate organization | Legacy/consolidation |
-
-Default to Families when audience isn't specified.
-
----
-
 ## Content Workflow
 
 ### 1. Research (optional)
