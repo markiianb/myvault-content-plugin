@@ -34,31 +34,50 @@ myvault-content-plugin/
 
 ## Team Workflow
 
-This plugin is distributed via a **private GitHub repo**. Team members must be collaborators.
+This plugin is distributed via a **private GitHub repo** (`markiianb/myvault-content-plugin`). Team members must be collaborators.
 
 ### First-Time Installation
 
-```bash
-# Clone the repo (requires GitHub access)
-git clone git@github.com:markiianb/myvault-content-plugin.git ~/myvault-plugin
+Team members run this one command:
 
-# Run install script
-cd ~/myvault-plugin
+```bash
+curl -fsSL https://raw.githubusercontent.com/markiianb/myvault-content-plugin/main/install-plugin.sh | bash
+```
+
+Or manually:
+
+```bash
+# Download install script
+curl -O https://raw.githubusercontent.com/markiianb/myvault-content-plugin/main/install-plugin.sh
+chmod +x install-plugin.sh
+
+# Run installer
 ./install-plugin.sh
 
 # Restart Claude Code
 ```
 
+**What it does:**
+- Registers the GitHub marketplace with Claude Code
+- Clones the repo to `~/.claude/plugins/marketplaces/myvault-marketplace/`
+- Installs the plugin automatically
+- Enables auto-updates via `claude marketplace update`
+
 ### Updating the Plugin
 
-When the maintainer pushes updates:
+When the maintainer pushes updates, team members run:
 
 ```bash
-cd ~/myvault-plugin
-./update-plugin.sh
-
-# Restart Claude Code
+claude marketplace update myvault-marketplace
 ```
+
+Or use the provided script:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/markiianb/myvault-content-plugin/main/update-plugin.sh | bash
+```
+
+Then restart Claude Code.
 
 ### For Maintainers: Pushing Updates
 
@@ -66,39 +85,51 @@ cd ~/myvault-plugin
 # Make changes to plugin files
 cd /path/to/myvault-content-plugin
 
+# Test locally first
+claude plugin disable myvault-content@myvault-marketplace
+# make your changes
+claude plugin enable myvault-content@myvault-marketplace
+
 # Commit and push
 git add .
-git commit -m "Update: [description]"
+git commit -m "Update: [description]
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 git push
 
-# Notify team to run ./update-plugin.sh
+# Notify team to update:
+# "New plugin update available! Run: claude marketplace update myvault-marketplace"
 ```
+
+**Important:** After pushing changes, Claude Code will automatically pull updates when team members run `marketplace update` or restart Claude Code (if auto-update is enabled).
 
 ### How Installation Works
 
-The scripts manage these Claude Code files:
+Claude Code manages these locations:
 
 | Location | Purpose |
 |----------|---------|
-| `~/.claude/plugins/marketplaces/myvault-marketplace/` | Marketplace registration |
-| `~/.claude/plugins/cache/myvault-marketplace/myvault-content/1.0.0/` | Installed plugin files |
-| `~/.claude/plugins/known_marketplaces.json` | Marketplace registry |
+| `~/.claude/plugins/marketplaces/myvault-marketplace/` | Git clone of the repo |
+| `~/.claude/plugins/cache/myvault-marketplace/myvault-content/1.0.0/` | Cached plugin files |
+| `~/.claude/plugins/known_marketplaces.json` | Marketplace registry (source: GitHub) |
 | `~/.claude/plugins/installed_plugins.json` | Plugin registry |
 
 ### Troubleshooting
 
 **Plugin not loading after install:**
 - Restart Claude Code completely (close terminal, reopen)
-- Check that files exist in cache directory
+- Run: `claude plugin list` to verify installation
+- Run: `claude plugin enable myvault-content@myvault-marketplace`
 
-**Permission denied on scripts:**
-```bash
-chmod +x install-plugin.sh update-plugin.sh
-```
+**Installation fails:**
+- Ensure you're added as a collaborator: https://github.com/markiianb/myvault-content-plugin
+- Ensure GitHub access is configured (SSH keys or HTTPS token)
+- Test access: `git ls-remote https://github.com/markiianb/myvault-content-plugin.git`
 
-**Git clone fails:**
-- Ensure you're added as a collaborator on the repo
-- Ensure SSH keys are configured: `ssh -T git@github.com`
+**Updates not appearing:**
+- Run: `claude marketplace update myvault-marketplace`
+- Restart Claude Code
+- Check: `cd ~/.claude/plugins/marketplaces/myvault-marketplace && git log -1`
 
 ---
 

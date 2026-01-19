@@ -1,40 +1,35 @@
 #!/bin/bash
 # Update MyVault Content Plugin
-# Pulls latest from git and copies to Claude Code cache
+# Pulls latest changes from GitHub
 
 set -e
 
-PLUGIN_DIR="$(cd "$(dirname "$0")" && pwd)"
-CACHE_DIR="$HOME/.claude/plugins/cache/myvault-marketplace/myvault-content/1.0.0"
+MARKETPLACE_NAME="myvault-marketplace"
 
 echo "=== MyVault Content Plugin Update ==="
 echo ""
 
-# Check if we're in a git repo
-if [ ! -d "$PLUGIN_DIR/.git" ]; then
-    echo "Error: Not a git repository. Clone the repo first."
+# Check if Claude CLI is available
+if ! command -v claude &> /dev/null; then
+    echo "Error: Claude Code CLI not found."
+    echo "Make sure Claude Code is installed and in your PATH."
     exit 1
 fi
 
-# Pull latest changes
-echo "Pulling latest from GitHub..."
-git -C "$PLUGIN_DIR" pull
+# Update the marketplace (pulls from GitHub)
+echo "Updating marketplace from GitHub..."
+claude marketplace update "$MARKETPLACE_NAME"
 
-# Check if cache directory exists
-if [ ! -d "$CACHE_DIR" ]; then
-    echo "Error: Plugin not installed. Run install-plugin.sh first."
+if [ $? -ne 0 ]; then
+    echo ""
+    echo "Error: Failed to update marketplace."
+    echo ""
+    echo "Manual update:"
+    echo "Run: claude marketplace update $MARKETPLACE_NAME"
     exit 1
 fi
-
-# Copy files to cache
-echo "Copying to Claude Code cache..."
-cp -r "$PLUGIN_DIR"/agents "$CACHE_DIR"/
-cp -r "$PLUGIN_DIR"/commands "$CACHE_DIR"/
-cp -r "$PLUGIN_DIR"/skills "$CACHE_DIR"/
-cp -r "$PLUGIN_DIR"/.claude-plugin "$CACHE_DIR"/
-cp "$PLUGIN_DIR"/README.md "$CACHE_DIR"/
-cp "$PLUGIN_DIR"/CLAUDE.md "$CACHE_DIR"/
 
 echo ""
 echo "Update complete!"
-echo "Restart Claude Code to apply changes."
+echo ""
+echo "Restart Claude Code to use the updated plugin."

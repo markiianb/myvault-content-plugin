@@ -1,134 +1,53 @@
 #!/bin/bash
-# Install MyVault Content Plugin
-# First-time setup for Claude Code
+# Install MyVault Content Plugin from GitHub
+# Registers the marketplace with Claude Code to enable auto-updates
 
 set -e
 
-PLUGIN_DIR="$(cd "$(dirname "$0")" && pwd)"
-PLUGIN_NAME="myvault-content"
+GITHUB_REPO="markiianb/myvault-content-plugin"
 MARKETPLACE_NAME="myvault-marketplace"
-VERSION="1.0.0"
-
-CLAUDE_DIR="$HOME/.claude/plugins"
-MARKETPLACE_DIR="$CLAUDE_DIR/marketplaces/$MARKETPLACE_NAME"
-CACHE_DIR="$CLAUDE_DIR/cache/$MARKETPLACE_NAME/$PLUGIN_NAME/$VERSION"
-KNOWN_MARKETPLACES="$CLAUDE_DIR/known_marketplaces.json"
-INSTALLED_PLUGINS="$CLAUDE_DIR/installed_plugins.json"
+PLUGIN_NAME="myvault-content"
 
 echo "=== MyVault Content Plugin Installation ==="
 echo ""
+echo "This will register the MyVault marketplace with Claude Code."
+echo "Claude will clone from: https://github.com/$GITHUB_REPO"
+echo ""
 
-# Check if Claude plugins directory exists
-if [ ! -d "$CLAUDE_DIR" ]; then
-    echo "Error: Claude Code plugins directory not found at $CLAUDE_DIR"
-    echo "Make sure Claude Code is installed."
+# Check if Claude CLI is available
+if ! command -v claude &> /dev/null; then
+    echo "Error: Claude Code CLI not found."
+    echo "Make sure Claude Code is installed and in your PATH."
     exit 1
 fi
 
-# Check if already installed
-if [ -d "$CACHE_DIR" ]; then
-    echo "Plugin already installed. Use update-plugin.sh to update."
-    exit 0
+# Add the marketplace using Claude's built-in command
+echo "Adding marketplace..."
+claude marketplace add github "$GITHUB_REPO"
+
+if [ $? -ne 0 ]; then
+    echo ""
+    echo "Error: Failed to add marketplace."
+    echo ""
+    echo "Manual installation:"
+    echo "Run: claude marketplace add github $GITHUB_REPO"
+    exit 1
 fi
 
-echo "Installing MyVault Content Plugin..."
+echo ""
+echo "Marketplace added! Now installing the plugin..."
 echo ""
 
-# Create directories
-echo "Creating directories..."
-mkdir -p "$MARKETPLACE_DIR"
-mkdir -p "$CACHE_DIR"
+# Install the plugin
+claude plugin install "$PLUGIN_NAME@$MARKETPLACE_NAME"
 
-# Copy to marketplace directory
-echo "Copying to marketplace directory..."
-cp -r "$PLUGIN_DIR"/agents "$MARKETPLACE_DIR"/
-cp -r "$PLUGIN_DIR"/commands "$MARKETPLACE_DIR"/
-cp -r "$PLUGIN_DIR"/skills "$MARKETPLACE_DIR"/
-cp -r "$PLUGIN_DIR"/.claude-plugin "$MARKETPLACE_DIR"/
-cp "$PLUGIN_DIR"/README.md "$MARKETPLACE_DIR"/
-cp "$PLUGIN_DIR"/CLAUDE.md "$MARKETPLACE_DIR"/
-
-# Copy to cache directory
-echo "Copying to cache directory..."
-cp -r "$PLUGIN_DIR"/agents "$CACHE_DIR"/
-cp -r "$PLUGIN_DIR"/commands "$CACHE_DIR"/
-cp -r "$PLUGIN_DIR"/skills "$CACHE_DIR"/
-cp -r "$PLUGIN_DIR"/.claude-plugin "$CACHE_DIR"/
-cp "$PLUGIN_DIR"/README.md "$CACHE_DIR"/
-cp "$PLUGIN_DIR"/CLAUDE.md "$CACHE_DIR"/
-
-# Update known_marketplaces.json
-echo "Registering marketplace..."
-if [ -f "$KNOWN_MARKETPLACES" ]; then
-    # Check if marketplace already registered
-    if grep -q "$MARKETPLACE_NAME" "$KNOWN_MARKETPLACES"; then
-        echo "Marketplace already registered."
-    else
-        # Add marketplace entry (insert after opening brace)
-        TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")
-        MARKETPLACE_ENTRY="\"$MARKETPLACE_NAME\": { \"source\": { \"source\": \"local\", \"path\": \"$PLUGIN_DIR\" }, \"installLocation\": \"$MARKETPLACE_DIR\", \"lastUpdated\": \"$TIMESTAMP\" },"
-
-        # Use sed to insert after first {
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-            sed -i '' "s|^{|{\n  $MARKETPLACE_ENTRY|" "$KNOWN_MARKETPLACES"
-        else
-            sed -i "s|^{|{\n  $MARKETPLACE_ENTRY|" "$KNOWN_MARKETPLACES"
-        fi
-    fi
-else
-    echo "Warning: known_marketplaces.json not found. Creating new file."
-    TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")
-    cat > "$KNOWN_MARKETPLACES" << EOF
-{
-  "$MARKETPLACE_NAME": {
-    "source": {
-      "source": "local",
-      "path": "$PLUGIN_DIR"
-    },
-    "installLocation": "$MARKETPLACE_DIR",
-    "lastUpdated": "$TIMESTAMP"
-  }
-}
-EOF
-fi
-
-# Update installed_plugins.json
-echo "Registering plugin..."
-if [ -f "$INSTALLED_PLUGINS" ]; then
-    # Check if plugin already registered
-    if grep -q "$PLUGIN_NAME@$MARKETPLACE_NAME" "$INSTALLED_PLUGINS"; then
-        echo "Plugin already registered."
-    else
-        # Add plugin entry
-        TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")
-        PLUGIN_ENTRY="\"$PLUGIN_NAME@$MARKETPLACE_NAME\": [{ \"scope\": \"user\", \"installPath\": \"$CACHE_DIR\", \"version\": \"$VERSION\", \"installedAt\": \"$TIMESTAMP\", \"lastUpdated\": \"$TIMESTAMP\" }],"
-
-        # Insert after "plugins": {
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-            sed -i '' "s|\"plugins\": {|\"plugins\": {\n    $PLUGIN_ENTRY|" "$INSTALLED_PLUGINS"
-        else
-            sed -i "s|\"plugins\": {|\"plugins\": {\n    $PLUGIN_ENTRY|" "$INSTALLED_PLUGINS"
-        fi
-    fi
-else
-    echo "Warning: installed_plugins.json not found. Creating new file."
-    TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")
-    cat > "$INSTALLED_PLUGINS" << EOF
-{
-  "version": 2,
-  "plugins": {
-    "$PLUGIN_NAME@$MARKETPLACE_NAME": [
-      {
-        "scope": "user",
-        "installPath": "$CACHE_DIR",
-        "version": "$VERSION",
-        "installedAt": "$TIMESTAMP",
-        "lastUpdated": "$TIMESTAMP"
-      }
-    ]
-  }
-}
-EOF
+if [ $? -ne 0 ]; then
+    echo ""
+    echo "Error: Failed to install plugin."
+    echo ""
+    echo "Manual installation:"
+    echo "Run: claude plugin install $PLUGIN_NAME@$MARKETPLACE_NAME"
+    exit 1
 fi
 
 echo ""
@@ -141,3 +60,5 @@ echo "  /myvault:write [type] about [topic] - Create on-brand content"
 echo "  /myvault:edit [content]          - Review for brand compliance"
 echo ""
 echo "Restart Claude Code to activate the plugin."
+echo ""
+echo "To update later, run: ./update-plugin.sh"
