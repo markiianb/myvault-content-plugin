@@ -15,14 +15,63 @@
 
 ## Prerequisites
 
-Before installation:
+**⚠️ This is a PRIVATE repository. You need access before you can install.**
 
-1. **GitHub Access**: You must be a collaborator on the private repo
-   - Test: `ssh -T git@github.com`
-   - Or: `gh auth login` (if using GitHub CLI)
+### 1. Get Added as a Collaborator
 
-2. **Claude Code**: Must be installed and working
-   - Test: Open Claude Code in any directory
+Contact the repository owner to be added as a collaborator:
+- Repository: https://github.com/markiianb/myvault-content-plugin
+- You'll receive an email invitation from GitHub
+- Accept the invitation
+
+### 2. Set Up GitHub Authentication
+
+You need GitHub credentials configured on your machine. Choose ONE method:
+
+**Option A: SSH Keys (Recommended)**
+
+```bash
+# Generate SSH key (if you don't have one)
+ssh-keygen -t ed25519 -C "your.email@example.com"
+
+# Copy your public key
+cat ~/.ssh/id_ed25519.pub
+
+# Add to GitHub: Settings → SSH and GPG keys → New SSH key
+# Paste the key and save
+
+# Test it works
+ssh -T git@github.com
+# Should say: "Hi username! You've successfully authenticated..."
+```
+
+**Option B: GitHub CLI**
+
+```bash
+# Install GitHub CLI (if needed)
+brew install gh
+
+# Login
+gh auth login
+
+# Test it works
+gh auth status
+```
+
+### 3. Verify Access
+
+Test that you can access the private repo:
+
+```bash
+git ls-remote https://github.com/markiianb/myvault-content-plugin.git
+```
+
+If this works, you're ready to install!
+
+### 4. Claude Code
+
+Claude Code must be installed and working:
+- Test: Open Claude Code in any directory
 
 ---
 
@@ -86,13 +135,37 @@ Then restart Claude Code.
 
 ## Troubleshooting
 
+### "Authentication failed" or "Repository not found"
+
+**This means you don't have access or credentials aren't configured.**
+
+1. Verify you're a collaborator:
+   - Go to: https://github.com/markiianb/myvault-content-plugin
+   - If you see "404 Not Found", you're not added yet
+   - Contact the repository owner to be added
+
+2. Test GitHub authentication:
+   ```bash
+   ssh -T git@github.com
+   ```
+   Should say: "Hi username! You've successfully authenticated"
+
+   If it fails, set up SSH keys (see Prerequisites section above)
+
+3. Test private repo access:
+   ```bash
+   git ls-remote https://github.com/markiianb/myvault-content-plugin.git
+   ```
+   If this fails, your credentials aren't working
+
 ### "Marketplace not found"
-- Check you're added as a collaborator: https://github.com/markiianb/myvault-content-plugin/settings/access
-- Test GitHub access: `ssh -T git@github.com`
+- Typo in the URL? Use: `https://github.com/markiianb/myvault-content-plugin`
+- Try the full URL including `https://`
 
 ### "Plugin not found in marketplace"
 - The marketplace was added but plugin wasn't found
-- Check the repo has `.claude-plugin/marketplace.json` in the root
+- Wait a few seconds and try again (Git clone might still be running)
+- Check: `ls ~/.claude/plugins/marketplaces/myvault-marketplace/`
 
 ### "Claude Code won't start"
 - Check debug log: `cat ~/.claude/debug/latest`
@@ -103,6 +176,11 @@ Then restart Claude Code.
 - Run `/plugin list` to verify it's installed and enabled
 - If disabled, run: `/plugin enable myvault-content@myvault-marketplace`
 - Restart Claude Code
+
+### Still having issues?
+- Check if the repo is actually private: https://github.com/markiianb/myvault-content-plugin/settings
+- Verify your GitHub email matches your work email
+- Try using GitHub CLI: `gh auth login` then retry installation
 
 ---
 
