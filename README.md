@@ -2,6 +2,8 @@
 
 A Claude Code plugin for producing on-brand MyVault content. Provides skills (knowledge), agents (task execution), and commands (shortcuts) for content research, writing, and editing.
 
+📖 **[Quick Start Guide for Team Members →](TEAM-GUIDE.md)**
+
 ---
 
 ## Installation (Team Members)
