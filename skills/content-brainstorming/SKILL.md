@@ -89,40 +89,20 @@ Ask questions **one at a time** to understand the user's content goals. Avoid ov
 
 ### Phase 2: Explore Angles
 
-After understanding the intent, propose 2-3 concrete content angles.
+After understanding the intent, propose 2-3 concrete content angles. Present them creatively—the goal is to help the user see different approaches, not to force a template.
 
-**Structure for Each Angle:**
+**What to Explore:**
+- Different emotional starting points (chaos → calm, fear → confidence, confusion → clarity)
+- Different narrative structures (problem/solution, before/after, myth-busting, how-to)
+- Different audience entry points (based on their current state, not demographics)
+- Different message emphasis (privacy-first, simplicity-first, intelligence-first)
 
-```markdown
-### Angle A: [Name]
-
-[2-3 sentence description of the approach]
-
-**Opening Hook:** [How we'd start this piece]
-
-**Design Pillar:** [Trust-first / Intelligent simplicity / Emotional connection / Privacy-powered AI]
-
-**Content Pillar:** [Chaos→Calm / Family Protection / Smart Insights / Privacy / Your Data / Intelligent Assistance]
-
-**Voice:** [Confident, warm, clear, empowering]
-
-**Pros:**
-- [Benefit 1]
-- [Benefit 2]
-
-**Cons:**
-- [Drawback 1]
-- [Drawback 2]
-
-**Best when:** [Circumstances where this angle works best]
-```
-
-**Guidelines:**
+**How to Present Angles:**
 - Lead with a recommendation and explain why
-- Ensure all angles follow MyVault brand voice (never fear-based)
-- Consider the audience's current emotional state
-- Reference existing content patterns when relevant
-- Choose angles that build confidence, not fear
+- Describe each angle naturally—what it is, why it works, when to use it
+- Help the user see tradeoffs without prescribing format
+- Be creative in how you present the comparison
+- Include enough detail that the user can make an informed choice
 
 **Brand Voice Guardrails:**
 - ❌ Never use fear-based messaging ("protect yourself from hackers")
@@ -133,60 +113,34 @@ After understanding the intent, propose 2-3 concrete content angles.
 
 ### Phase 3: Capture the Content Brief
 
-Summarize key decisions in a structured format.
+Create a brief that captures the key decisions without prescribing exact structure. The brief should be clear, concise, and useful for writing—not a rigid template.
 
-**Content Brief Structure:**
+**What to Capture:**
+- What we're creating (content type, audience, goal)
+- The core message or transformation
+- The chosen angle and why
+- Any important constraints or brand considerations
+- What research or assets are needed
+- Next steps
 
-```markdown
----
-date: YYYY-MM-DD
-topic: <kebab-case-topic>
-content-type: [blog|newsletter|social|website|help-docs]
-audience: [families|professionals|hnw|general]
----
-
-# <Topic Title>
-
-## What We're Creating
-**Content Type:** [Blog post / Newsletter / Social post / etc.]
-**Target Audience:** [Families / Professionals / HNW]
-**Word Count:** [Target length]
-
-## Content Goal
-[What should this accomplish? 1-2 sentences]
-
-## The Message
-**One thing to remember:** [The core message]
-
-**Transformation:** [Before state] → [After state]
-
-## Chosen Angle
-[Brief explanation of angles considered and why this one was chosen]
-
-## Key Decisions
-- **Design Pillar:** [Trust-first / Intelligent simplicity / Emotional connection / Privacy-powered AI]
-- **Content Pillar:** [Chaos→Calm / Family Protection / etc.]
-- **Opening Hook:** [How we'll start]
-- **Call to Action:** [What readers should do]
-
-## Voice & Tone
-- Confident (not fearful)
-- Warm (not clinical)
-- Clear (not jargon-heavy)
-- Empowering (not patronizing)
-
-## Assets Needed
-- [ ] Research on [topic]
-- [ ] Statistics (Tier A/B sources)
-- [ ] Product features to highlight
-- [ ] Existing content to reference
-
-## Next Steps
-→ Run `/myvault:research [topic]` if research needed
-→ Run `/myvault:write [brief]` to create draft
-```
+**How to Capture It:**
+- Write naturally—don't force a template
+- Include only what's relevant for this specific piece
+- Use YAML frontmatter for metadata (date, topic, content-type, audience)
+- Make it actionable—the writer should know what to do next
+- Keep it concise—details belong in the draft, not the brief
 
 **Output Location:** `docs/content-briefs/YYYY-MM-DD-<topic>-brief.md`
+
+**Example frontmatter (flexible, not required):**
+```yaml
+---
+date: YYYY-MM-DD
+topic: password-security-families
+content-type: blog
+audience: families
+---
+```
 
 ### Phase 4: Handoff
 
