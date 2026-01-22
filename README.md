@@ -68,6 +68,7 @@ Then restart Claude Code.
 
 | Command | Purpose | Example |
 |---------|---------|---------|
+| `/myvault:brainstorm` | Brainstorm content ideas and angles | `/myvault:brainstorm password security for families` |
 | `/myvault:research` | Research a topic with cited sources | `/myvault:research photo organization statistics` |
 | `/myvault:content-research` | Research content landscape and gaps | `/myvault:content-research subscription management` |
 | `/myvault:write` | Create content following brand voice | `/myvault:write newsletter about privacy for professionals` |
@@ -80,6 +81,7 @@ Then restart Claude Code.
 ```
 myvault-content-plugin/
 ├── commands/                # Workflow shortcuts
+│   ├── brainstorm.md        # /myvault:brainstorm
 │   ├── research.md          # /myvault:research
 │   ├── content-research.md  # /myvault:content-research
 │   ├── write.md             # /myvault:write
@@ -95,7 +97,8 @@ myvault-content-plugin/
     ├── brand-voice/SKILL.md
     ├── style-guide/SKILL.md
     ├── audience-personas/SKILL.md
-    └── product-knowledge/SKILL.md
+    ├── product-knowledge/SKILL.md
+    └── content-brainstorming/SKILL.md
 ```
 
 ---
@@ -110,6 +113,7 @@ Skills are loaded by agents to provide context. You can also load them directly.
 | **style-guide** | Grammar, punctuation, mechanics, AI communication patterns |
 | **audience-personas** | Three personas (Families, Professionals, HNW) with pain points and messaging |
 | **product-knowledge** | What MyVault does, three agents, features, V1 scope, safe claims |
+| **content-brainstorming** | 4-phase brainstorming process, angle exploration, content brief creation |
 
 ---
 
@@ -148,19 +152,25 @@ MyVault is a **tool**, not a personality. Never "I" — always "MyVault" or "You
 
 ## Content Workflow
 
-### 1. Research (optional)
+### 1. Brainstorm (when goal is unclear)
+```
+/myvault:brainstorm [vague content idea]
+```
+Clarifies WHAT to create, for WHOM, and WHY. Produces a content brief.
+
+### 2. Research (optional)
 ```
 /myvault:research [topic]
 ```
 Returns statistics, trends, and sources.
 
-### 2. Write
+### 3. Write
 ```
 /myvault:write [content type] about [topic] for [audience]
 ```
 Creates draft following brand voice.
 
-### 3. Edit
+### 4. Edit
 ```
 /myvault:edit [content]
 ```

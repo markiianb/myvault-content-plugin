@@ -16,19 +16,21 @@ myvault-content-plugin/
 │   └── written/
 │       ├── writer.md
 │       └── style-editor.md
-├── commands/                 # 4 slash commands
+├── commands/                 # 5 slash commands
+│   ├── brainstorm.md         # /myvault:brainstorm
 │   ├── research.md           # /myvault:research
 │   ├── content-research.md   # /myvault:content-research
 │   ├── write.md              # /myvault:write
 │   └── edit.md               # /myvault:edit
-├── skills/                   # 4 knowledge skills
+├── skills/                   # 5 knowledge skills
 │   ├── brand-voice/SKILL.md
 │   ├── style-guide/SKILL.md
 │   ├── audience-personas/SKILL.md
-│   └── product-knowledge/SKILL.md
-├── install-plugin.sh         # First-time installation script
-├── update-plugin.sh          # Update script for team members
+│   ├── product-knowledge/SKILL.md
+│   └── content-brainstorming/SKILL.md
 ├── README.md                 # User documentation
+├── TEAM-GUIDE.md             # Team member quick start
+├── INSTALL.md                # Detailed installation guide
 └── CLAUDE.md                 # This file
 ```
 
@@ -164,6 +166,9 @@ Produces Content
 ### Using Commands
 
 ```bash
+# Brainstorm content ideas and angles
+/myvault:brainstorm password security for families
+
 # Research facts about a topic
 /myvault:research subscription fatigue
 
@@ -249,23 +254,29 @@ Load the product-knowledge skill
 
 ### Standard Flow
 
-1. **Content Research** (optional): `/myvault:content-research [topic area]`
+1. **Brainstorm** (when goal is unclear): `/myvault:brainstorm [vague idea]`
+   - 4-phase process: Assess → Understand → Explore → Capture
+   - Clarifies WHAT to create, for WHOM, and WHY
+   - Explores 2-3 content angles with pros/cons
+   - Produces structured content brief in `docs/content-briefs/`
+
+2. **Content Research** (optional): `/myvault:content-research [topic area]`
    - Maps existing content landscape
    - Identifies gaps and opportunities
    - Analyzes competitor positioning
    - Recommends angles for MyVault
 
-2. **Topic Research** (optional): `/myvault:research [topic]`
+3. **Topic Research** (optional): `/myvault:research [topic]`
    - Gathers statistics, trends, sources
    - Evaluates source quality (Tier A/B/C/D)
    - Connects findings to MyVault narrative
 
-3. **Write**: `/myvault:write [type] about [topic] for [audience]`
+4. **Write**: `/myvault:write [type] about [topic] for [audience]`
    - Loads all knowledge skills
    - Follows 4-phase protocol (Think → Structure → Draft → Review)
    - Applies 9 signature moves
 
-4. **Edit**: `/myvault:edit [content]`
+5. **Edit**: `/myvault:edit [content]`
    - 8-phase review process
    - Checks voice, product voice, AI transparency, mechanics
    - Outputs structured edit results

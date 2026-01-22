@@ -6,12 +6,13 @@ A Claude Code plugin that helps you create on-brand MyVault content.
 
 ## What It Does
 
-This plugin gives you 4 commands in Claude Code to help with content creation:
+This plugin gives you 5 commands in Claude Code to help with content creation:
 
-1. **Research topics** with cited sources
-2. **Research content landscape** and find gaps
-3. **Write content** following MyVault brand voice
-4. **Edit content** for brand compliance
+1. **Brainstorm content** to clarify ideas and angles
+2. **Research topics** with cited sources
+3. **Research content landscape** and find gaps
+4. **Write content** following MyVault brand voice
+5. **Edit content** for brand compliance
 
 All content follows MyVault's brand guidelines automatically.
 
@@ -56,6 +57,13 @@ Restart Claude Code.
 ## How to Use
 
 Open Claude Code in any directory and use these commands:
+
+### Brainstorm Content Ideas
+```
+/myvault:brainstorm password security for families
+/myvault:brainstorm digital organization
+```
+Use when you have a vague idea and need to clarify WHAT to create, for WHOM, and WHY. Creates a structured content brief.
 
 ### Research a Topic
 ```
