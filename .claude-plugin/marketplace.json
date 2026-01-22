@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "myvault-content",
-      "description": "Content production tools for MyVault. 4 agents, 4 commands, 4 skills for research, writing, and editing on-brand content.",
+      "description": "Content production tools for MyVault. 4 agents, 5 commands, 5 skills for research, brainstorming, writing, and editing on-brand content.",
       "version": "1.0.0",
       "source": "./",
       "strict": false,
@@ -19,7 +19,8 @@
         "./skills/brand-voice",
         "./skills/style-guide",
         "./skills/audience-personas",
-        "./skills/product-knowledge"
+        "./skills/product-knowledge",
+        "./skills/content-brainstorming"
       ]
     }
   ]

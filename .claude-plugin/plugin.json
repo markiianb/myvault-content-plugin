@@ -1,7 +1,7 @@
 {
   "name": "myvault-content",
   "version": "1.0.0",
-  "description": "Content production tools for MyVault. 4 agents, 4 commands, 4 skills for research, writing, and editing on-brand content.",
+  "description": "Content production tools for MyVault. 4 agents, 5 commands, 5 skills for research, brainstorming, writing, and editing on-brand content.",
   "author": {
     "name": "Mark B",
     "url": "https://github.com/markiianb"
