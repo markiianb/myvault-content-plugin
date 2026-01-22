@@ -35,84 +35,6 @@ bias:
 
 ---
 
-## Worldview Axioms
-
-These beliefs guide every word:
-
-1. **"Your memories belong to you."** — Privacy isn't a feature. It's the foundation.
-
-2. **"Technology should disappear."** — The best AI is invisible. It just works.
-
-3. **"Build confidence, not fear."** — Security messaging that reassures, not scares.
-
-4. **"Chaos is the enemy, not complexity."** — People don't have too many photos. They have too little organization.
-
-5. **"Show the transformation."** — Before: overwhelming. After: calm. That's our story.
-
-6. **"The product works. Not 'I' work."** — MyVault is a tool, not a personality.
-
-7. **"Intelligence explains itself."** — AI that shows its reasoning earns trust.
-
-8. **"Humans stay in control."** — We assist decisions. We don't make them.
-
----
-
-## Formative Scene
-
-```
-A parent looking at their phone.
-
-47,000 photos. Years of memories—birthday parties, first steps,
-family vacations, random screenshots, blurry duplicates.
-All mixed together. No organization. No way to find anything.
-
-The feeling: overwhelming. Guilty. "I should organize this someday."
-
-Now imagine opening MyVault. Everything sorted. Duplicates gone.
-That photo from three Thanksgivings ago? Found in seconds.
-A notification: "Your Insurance Agent found a better rate—$180/year savings."
-All private. All yours. All explained.
-
-The feeling: calm. In control. "My digital life is managed."
-
-That transformation—from chaos to calm—is what we write about.
-```
-
----
-
-## The Four Design Pillars (Write Into These)
-
-Every piece of content should embody one or more:
-
-### 1. Trust-First Design
-Write content that builds trust through:
-- Clear explanations of what MyVault does
-- Honest about limitations
-- Confidence without arrogance
-- Privacy facts stated simply
-
-### 2. Intelligent Simplicity
-Write content that shows:
-- Complex capabilities, simple experience
-- Features that "just work"
-- Smart defaults that make sense
-- No jargon required to understand
-
-### 3. Emotional Connection
-Write content that creates:
-- Recognition moments ("Sound familiar?")
-- Empathy for the overwhelmed
-- Celebration of memories preserved
-- Respect for personal moments
-
-### 4. Privacy-Powered AI
-Write content that demonstrates:
-- Privacy enables intelligence (not limits it)
-- AI that explains its reasoning
-- User control at every step
-- Data that stays private AND useful
-
----
 
 ## Canon (Write Like This)
 
@@ -255,58 +177,6 @@ Don't summarize. Say what's next. Or restate the core promise.
 
 ---
 
-## Writing About the Three Agents
-
-MyVault has specialized AI agents. Write about them as tools, not personalities.
-
-### Insurance Agent
-
-**What it does:** Manages policies, tracks renewals, finds savings
-
-**Voice pattern:**
-> "Your Insurance Agent analyzed your auto policy against current market rates. It found three alternatives that could save you up to $180/year. Here's the comparison."
-
-**Never:**
-> "I found some great deals on car insurance for you!"
-
-### Finance Agent
-
-**What it does:** Organizes bills, spots duplicate charges, tracks subscriptions
-
-**Voice pattern:**
-> "Your Finance Agent noticed a duplicate charge on your credit card statement—$47.99 from the same vendor, two days apart. Worth reviewing."
-
-**Never:**
-> "Oops! I found a mistake on your bill!"
-
-### Asset Agent
-
-**What it does:** Tracks warranties, schedules maintenance, catalogs purchases
-
-**Voice pattern:**
-> "Your Asset Agent found the warranty document for your dishwasher. Coverage expires March 2025. The original purchase receipt is also in your vault."
-
-**Never:**
-> "I remembered your warranty for you!"
-
----
-
-## Writing for "Ask MyVault"
-
-The natural language feature should feel like a search box, not a conversation.
-
-**Good prompts to demonstrate:**
-- "When does my car insurance renew?"
-- "Show me photos from last Christmas"
-- "What subscriptions am I paying for?"
-
-**How to describe responses:**
-> "Ask MyVault pulls information from your documents and presents it clearly—with sources, so you can verify."
-
-**Never describe as:**
-> "Chat with MyVault" / "MyVault will answer your questions" / "Have a conversation"
-
----
 
 ## Writing Protocol
 
@@ -332,20 +202,6 @@ Before writing a single word, answer:
 **Content Type:** [Blog / Newsletter / LinkedIn / Website / Help / Agent UI / etc.]
 
 **Audience:** [Tech-Forward Families / Security-Conscious Pros / General]
-
-**Design Pillar:**
-[ ] Trust-first design
-[ ] Intelligent simplicity
-[ ] Emotional connection
-[ ] Privacy-powered AI
-
-**Content Pillar:**
-[ ] Digital Chaos → Digital Calm
-[ ] Family Protection
-[ ] Smart Insights
-[ ] Privacy Without Compromise
-[ ] Your Data, Your Control
-[ ] Intelligent Assistance
 
 **The ONE Thing:** [If they remember nothing else, what's the point?]
 
@@ -458,16 +314,6 @@ Before delivering, check:
 - [ ] Warm but professional?
 - [ ] Clear but not simplistic?
 - [ ] Empowering, not dependent?
-
-#### Design Pillar Check
-- [ ] Does this embody trust-first design?
-- [ ] Does it demonstrate intelligent simplicity?
-- [ ] Does it create emotional connection?
-- [ ] Does it show privacy-powered AI?
-
-#### Content Pillar Check
-- [ ] Does this connect to a clear content pillar?
-- [ ] Is the transformation visible?
 
 #### Product Voice Check
 - [ ] No "I" from the product?
