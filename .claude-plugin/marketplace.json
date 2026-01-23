@@ -13,28 +13,7 @@
       "name": "myvault-content",
       "description": "Content production tools for MyVault. 4 agents, 5 commands, 5 skills for research, brainstorming, writing, and editing on-brand content.",
       "version": "1.0.0",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/brand-voice",
-        "./skills/style-guide",
-        "./skills/audience-personas",
-        "./skills/product-knowledge",
-        "./skills/content-brainstorming"
-      ],
-      "commands": [
-        "./commands/brainstorm.md",
-        "./commands/research.md",
-        "./commands/content-research.md",
-        "./commands/write.md",
-        "./commands/edit.md"
-      ],
-      "agents": [
-        "./agents/research/topic-researcher.md",
-        "./agents/research/content-researcher.md",
-        "./agents/written/writer.md",
-        "./agents/written/style-editor.md"
-      ]
+      "source": "./"
     }
   ]
 }
