@@ -12,7 +12,7 @@
     {
       "name": "myvault-content",
       "description": "Content production tools for MyVault. 4 agents, 5 commands, 5 skills for research, brainstorming, writing, and editing on-brand content.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "source": "./"
     }
   ]
