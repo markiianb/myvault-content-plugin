@@ -433,6 +433,43 @@ Solved critical issues with GitHub-based plugin distribution for private repos:
 - Marketplace.json must define plugins array with `source: "./"` for root-level plugin
 - Plugin directory must contain: agents/, commands/, skills/, .claude-plugin/plugin.json
 
+### 2026-01-23: Auto-Discovery vs Explicit Declaration Conflict
+
+**Problem:** Commands/skills/agents not appearing after plugin installation.
+
+**Root Cause:** Claude Code uses **auto-discovery** for components. Having explicit `commands`, `skills`, or `agents` arrays in `marketplace.json` OR `plugin.json` causes a conflict:
+
+```
+[ERROR] Plugin myvault-content has both plugin.json and marketplace manifest entries for commands/agents/skills. This is a conflict.
+```
+
+**Solution:** Remove all explicit arrays. Let Claude Code auto-discover from directories:
+
+```json
+// marketplace.json - CORRECT (no arrays)
+{
+  "plugins": [{
+    "name": "myvault-content",
+    "description": "...",
+    "version": "1.0.0",
+    "source": "./"
+  }]
+}
+
+// plugin.json - CORRECT (only metadata)
+{
+  "name": "myvault-content",
+  "version": "1.0.0",
+  "description": "...",
+  "author": {...},
+  "keywords": [...]
+}
+```
+
+**Key Rule:** Never declare `commands`, `skills`, or `agents` arrays in either file. Just create the directories and Claude Code finds them automatically.
+
+**Debugging:** Check `~/.claude/debug/latest` for plugin loading errors.
+
 ---
 
 *Private by design. Intelligent by nature.*
