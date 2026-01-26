@@ -11,13 +11,36 @@ triggers:
 
 # MyVault Audience Personas
 
-Three audiences. Same voice, different emphasis.
+Three audiences. Equal priority. Same voice, different entry points.
 
 ---
 
-## Primary: Tech-Forward Families
+## The Shared Need
+
+All three audiences share a common thread:
+
+> **Intelligent organization + privacy + control over their digital life.**
+
+They arrive through different doors, but they want the same thing: a digital life that works for them, stays private, and doesn't require constant maintenance.
+
+| What They Share | Why It Matters |
+|-----------------|----------------|
+| Distrust of big tech | They've read the privacy policies |
+| Value privacy | Different reasons, same outcome |
+| Want things to "just work" | No time for manual organization |
+| Appreciate honesty over hype | Tired of marketing speak |
+| Respond to confidence, not fear | Security that reassures |
+| Time-constrained | Organization is a means, not an end |
+
+**The MyVault voice works for all three.** Adjust emphasis, not tone.
+
+---
+
+## Audience 1: Tech-Forward Families
 
 **Who:** Parents (35-55), $100K-$300K+ income, college-educated, multiple devices, comfortable with tech but overwhelmed by volume.
+
+**Entry point:** Family protection, photo chaos, emergency preparedness
 
 **The moment:**
 > "47,000 photos. Files everywhere. What if something happens to me—can my spouse find what they need?"
@@ -63,9 +86,11 @@ Three audiences. Same voice, different emphasis.
 
 ---
 
-## Secondary: Security-Conscious Professionals
+## Audience 2: Security-Conscious Professionals
 
 **Who:** Professionals (28-50), tech/finance/legal/healthcare, $75K-$200K, single or DINK, power users of privacy tools (VPNs, password managers, ProtonMail).
+
+**Entry point:** Privacy architecture, data sovereignty, zero-trust
 
 **The moment:**
 > "I read the privacy policy. I know what 'free' really costs. And I can't verify how my data is handled."
@@ -110,9 +135,11 @@ Three audiences. Same voice, different emphasis.
 
 ---
 
-## Tertiary: High Net Worth Individuals
+## Audience 3: High Net Worth Individuals
 
 **Who:** Affluent individuals (45-70), $1M-$50M+ net worth, executives/entrepreneurs, married with adult children, complex financial lives, delegate to assistants.
+
+**Entry point:** Estate organization, document consolidation, legacy planning
 
 **The moment:**
 > "Documents with my attorney, accountant, three advisors, two properties. My kids don't know where anything is."
@@ -175,13 +202,19 @@ Use these as content hooks—they're the moments people seek MyVault:
 ### Subscription Chaos
 > "When I see another subscription charge I don't recognize, I want to see all my subscriptions in one place so that I can cut what I don't use."
 
+### Estate Planning
+> "When I think about my estate, I want all my documents consolidated so that my family isn't left searching."
+
+### Privacy Concerns
+> "When I read about another data breach, I want to know my documents are truly private so that I'm not dependent on big tech's promises."
+
 ---
 
 ## Quick Reference
 
 | Attribute | Families | Professionals | High Net Worth |
 |-----------|----------|---------------|----------------|
-| **Primary need** | Family protection | Privacy control | Estate organization |
+| **Entry point** | Family protection | Privacy control | Estate organization |
 | **Key emotion** | Peace of mind | Trust and control | Legacy confidence |
 | **Lead pillar** | Chaos → Calm | Privacy Without Compromise | Your Data, Your Control |
 | **Open with** | Family scenario | Privacy/architecture | Estate/legacy |
@@ -191,34 +224,48 @@ Use these as content hooks—they're the moments people seek MyVault:
 
 ---
 
-## When Audience Isn't Specified
+## Content Distribution
 
-Default to **Tech-Forward Families**—primary audience, broadest market.
+All three audiences deserve equal representation. Balance content across entry points:
 
-**Lean Professional when content is about:**
+| Content Type | Families | Professionals | HNW |
+|--------------|----------|---------------|-----|
+| **LinkedIn** | ~33% | ~33% | ~33% |
+| **Blog** | ~33% | ~33% | ~33% |
+| **Newsletter** | ~33% | ~33% | ~33% |
+
+### Matching Content to Audience
+
+**Lean Families when content is about:**
+- Photo organization, memories
+- Family sharing, emergency access
+- Subscription management
+- Life events (new home, new baby)
+
+**Lean Professionals when content is about:**
 - Data ownership, export, architecture
 - AI transparency, how it works
 - Security claims and verification
+- Zero-trust, encryption details
 
 **Lean HNW when content is about:**
 - Estate planning, legacy
 - Complex document management
 - Family coordination for adult children
-- Premium features
+- Premium features, white-glove service
 
 ---
 
-## All Three Share
+## When Audience Isn't Specified
 
-- Distrust of big tech
-- Value privacy (different reasons)
-- Want things to "just work"
-- Appreciate honesty over hype
-- Respond to confidence, not fear
-- Time-constrained
+Consider the topic and match to the most relevant audience. If truly ambiguous, write for the **shared need**—intelligent organization, privacy, and control—without leaning into any specific entry point.
 
-**The MyVault voice works for all three.** Adjust emphasis, not tone.
+**Universal hooks that work for all three:**
+- "Find any document in seconds"
+- "Your data stays yours"
+- "Organization that happens automatically"
+- "Private by design"
 
 ---
 
-*Same voice. Different door.*
+*Three doors. One vault.*
